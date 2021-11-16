@@ -1,0 +1,19 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Move assigned card
+on:
+  issues:
+
+jobs:
+  move-assigned-card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: soichisumi/issue-copy-action@v0.2.0
+        with:
+          keyword: "/copy"
+          targetRepository: evil-wallace/the-destination
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          contentOfNewIssue: 'prefix of newly created issue'
